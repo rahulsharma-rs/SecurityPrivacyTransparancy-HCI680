@@ -22,7 +22,7 @@ This chapter teaches you how to protect patient data using cryptography and auth
 A virtual environment keeps your project dependencies separate from other Python projects.
 
 **For Windows:**
-\`\`\`bash
+```bash
 # Navigate to your project folder
 cd path/to/chapter2
 
@@ -31,10 +31,10 @@ python -m venv healthcare_crypto_env
 
 # Activate virtual environment
 healthcare_crypto_env\Scripts\activate
-\`\`\`
+```
 
 **For macOS/Linux:**
-\`\`\`bash
+```bash
 # Navigate to your project folder
 cd path/to/chapter2
 
@@ -43,23 +43,23 @@ python3 -m venv healthcare_crypto_env
 
 # Activate virtual environment
 source healthcare_crypto_env/bin/activate
-\`\`\`
+```
 
 ### Step 2: Install Required Packages
 <!-- Updated package installation to use requirements.txt -->
-\`\`\`bash
+```bash
 # Install all required packages at once
 pip install -r requirements.txt
 
 # OR install individually if needed:
 # pip install pycryptodome pyjwt pyotp
-\`\`\`
+```
 
 ### Step 3: Verify Installation
-\`\`\`bash
+```bash
 # Test that packages are installed correctly
 python -c "from Crypto.Cipher import AES; import jwt; import pyotp; print('All packages installed successfully!')"
-\`\`\`
+```
 
 ### Important Notes:
 - **Always activate your virtual environment** before running the scripts
@@ -114,9 +114,9 @@ python -c "from Crypto.Cipher import AES; import jwt; import pyotp; print('All p
 **Important Note**: `pakage_encrypt.py` and `verify_decrypt.py` work together as a complete use case - you encrypt a document with the first script and decrypt it with the second script.
 
 **Step 1: Generate Keys**
-\`\`\`bash
+```bash
 python key_setup.py
-\`\`\`
+```
 **Files created**:
 - `alice_private.pem` - Alice's secret signing key (keep private!)
 - `alice_public.pem` - Alice's public key for verification
@@ -124,24 +124,24 @@ python key_setup.py
 - `bob_public.pem` - Bob's public key for encryption
 
 **Step 2: Create Secure Package**
-\`\`\`bash
+```bash
 python pakage_encrypt.py
-\`\`\`
+```
 **Files created**:
 - `header.json` - Contains encryption details and digital signature
 - `payload.bin` - The encrypted radiology report
 
 **Step 3: Issue Access Permission**
-\`\`\`bash
+```bash
 python mint_token.py
-\`\`\`
+```
 **Files created**:
 - `token.jwt` - Digital permission slip allowing Bob to decrypt the file
 
 **Step 4: Decrypt and Verify**
-\`\`\`bash
+```bash
 python verify_decrypt.py
-\`\`\`
+```
 **Files created**:
 - `radiology_report_decrypted.pdf` - The original report, now safely decrypted
 
