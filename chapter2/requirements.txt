@@ -1,0 +1,23 @@
+# Chapter 2: Cryptography and Authentication Basics - Required Packages
+# Healthcare Cybersecurity Course Dependencies
+
+# Core cryptographic library for AES, RSA, ECC, hashing, and digital signatures
+# Used in: SymmetricEncryption.py, AsymmetricEncryption.py, DigitalSignature.py, 
+#          HashFuctions.py, pakage_encrypt.py, verify_decrypt.py
+pycryptodome==3.19.0
+
+# JSON Web Token library for OAuth 2.0 and OpenID Connect implementations
+# Used in: mint_token.py, verify_decrypt.py, Auto2o.py, OpenID.py
+PyJWT==2.8.0
+
+# One-Time Password library for Multi-Factor Authentication (MFA)
+# Used in: MFASimulation.py
+pyotp==2.9.0
+
+# Additional standard libraries (usually included with Python):
+# - hmac (for HMAC operations in SSO.py)
+# - hashlib (for hash functions)
+# - base64 (for encoding/decoding)
+# - json (for JSON handling)
+# - time (for timestamps)
+# - dataclasses (for structured data in RBACChecks.py)
