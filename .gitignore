@@ -7,3 +7,4 @@
 /chapter2/payload.bin
 /chapter2/radiology_report_decrypted.pdf
 /chapter2/token.jwt
+/chapter3/.env

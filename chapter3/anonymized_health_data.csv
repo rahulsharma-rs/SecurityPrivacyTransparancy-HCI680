@@ -1,0 +1,11 @@
+PatientID,DOB,ZipCode,Diagnosis
+1,1985,104XX,Hypertension
+2,1968,391XX,Hypertension
+3,1969,207XX,Asthma
+4,1955,460XX,Asthma
+5,1934,413XX,Asthma
+6,1997,333XX,Asthma
+7,1978,383XX,Diabetes
+8,1992,573XX,Hypertension
+9,2003,120XX,Hypertension
+10,1955,277XX,Hypertension

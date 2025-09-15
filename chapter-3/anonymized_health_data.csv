@@ -1,0 +1,11 @@
+PatientID,DOB,ZipCode,Diagnosis
+1,1990,049XX,Diabetes
+2,1974,948XX,Diabetes
+3,1950,799XX,Diabetes
+4,1989,682XX,Diabetes
+5,1943,792XX,Hypertension
+6,1938,690XX,Hypertension
+7,1977,731XX,Diabetes
+8,2004,208XX,Diabetes
+9,1983,704XX,Asthma
+10,1981,616XX,Diabetes

@@ -1,0 +1,22 @@
+{
+  "purpose": "Research",
+  "population": { "condition": "Type 2 diabetes", "age": "<18" },
+  "time_window": "2015-01-01 to 2025-12-31",
+  "sites": ["UAB-MainHospital", "UAB-ClinicA", "CommunityClinicX"],
+  "data_elements": [
+    "name",
+    "dob",
+    "mrn",
+    "encounter_dates",
+    "A1c",
+    "glucose",
+    "medications",
+    "addresses",
+    "phone",
+    "ssn",
+    "email"
+  ],
+  "export_destination": "European Research Partner",
+  "jurisdictions": ["US", "EU"],
+  "sharing_outside_eea": true
+}

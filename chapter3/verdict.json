@@ -1,0 +1,90 @@
+{
+  "verdict": "Allowed with conditions",
+  "findings": [
+    {
+      "rule_set": "irb",
+      "id": "irb_scope_alignment",
+      "title": "IRB Scope Alignment",
+      "pass": true,
+      "detail": "",
+      "citations": [
+        "45 CFR 46.109",
+        "45 CFR 46.116"
+      ],
+      "remediation": "Amend IRB or narrow request to align population/timeframe/sites/elements."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_minimum_necessary",
+      "title": "HIPAA Minimum Necessary",
+      "pass": false,
+      "detail": "Direct identifiers requested.",
+      "citations": [
+        "HIPAA \u00a7164.502(b)"
+      ],
+      "remediation": "Trim to minimum necessary; justify elements in DMP/IRB."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_deid_or_limited",
+      "title": "HIPAA De-ID or Limited Dataset",
+      "pass": false,
+      "detail": "Prefer De-Identification or Limited Dataset + DUA.",
+      "citations": [
+        "HIPAA \u00a7164.514(b)",
+        "HIPAA \u00a7164.514(e)"
+      ],
+      "remediation": "Remove direct identifiers; De-ID or Limited Dataset + DUA."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_auth_or_waiver",
+      "title": "HIPAA Authorization or IRB Waiver",
+      "pass": true,
+      "detail": "",
+      "citations": [
+        "HIPAA \u00a7164.508"
+      ],
+      "remediation": ""
+    },
+    {
+      "rule_set": "gdpr",
+      "id": "gdpr_lawful_basis",
+      "title": "GDPR Lawful Basis & Art.9",
+      "pass": true,
+      "detail": "Not in scope for this request.",
+      "citations": [
+        "GDPR Art.6",
+        "GDPR Art.9"
+      ],
+      "remediation": ""
+    }
+  ],
+  "irb_scope": {
+    "population": "Adults aged 18+ with Type 2 Diabetes (ICD-10: E11.*); Excludes pediatrics",
+    "timeframe": "January 1, 2019 through December 31, 2025",
+    "sites": [
+      "UAB-MainHospital",
+      "UAB-ClinicA"
+    ],
+    "approved_elements": [
+      "encounter dates",
+      "labs (a1c",
+      "fasting glucose)",
+      "medications (insulin",
+      "metformin",
+      "glp-1)",
+      "demographics (age",
+      "sex",
+      "race)",
+      "vitals (bmi",
+      "blood pressure)"
+    ],
+    "identifiers_rule": "Direct identifiers are NOT approved for export; internal analysis may link via MRN in a secure enclave only",
+    "hipaa": "IRB has approved a Waiver of Authorization for retrospective EHR review in a secure enclave",
+    "sharing": "External sharing limited to De-identified or Limited Dataset with DUA; no raw identifiers may leave enclave",
+    "retention": "Analysis workspace auto-deletes derived datasets after 24 months unless renewed",
+    "notes": "Expansion to new sites, pediatrics, or new identifiers requires IRB amendment"
+  },
+  "report_markdown": "### Verdict\nAllowed with conditions\n\n### Rationale\n- [PASS] IRB Scope Alignment\n- [ISSUE] HIPAA Minimum Necessary \u2014 Direct identifiers requested.\n- [ISSUE] HIPAA De-ID or Limited Dataset \u2014 Prefer De-Identification or Limited Dataset + DUA.\n- [PASS] HIPAA Authorization or IRB Waiver\n- [PASS] GDPR Lawful Basis & Art.9 \u2014 Not in scope for this request.\n\n### Required Changes\n1) Trim to minimum necessary; justify elements in DMP/IRB.\n2) Remove direct identifiers; De-ID or Limited Dataset + DUA.\n\n### Legal Anchors\n- 45 CFR 46.109\n- 45 CFR 46.116\n- GDPR Art.6\n- GDPR Art.9\n- HIPAA \u00a7164.502(b)\n- HIPAA \u00a7164.508\n- HIPAA \u00a7164.514(b)\n- HIPAA \u00a7164.514(e)\n\n### Policy Excerpts\n[HIPAA] HIPAA minimum necessary standard \u00a7164.502(b) \u2014 ./HIPAA.pdf: HIPAA Administrative Simplification Regulation Text  March 2013   62  f or 6 years from the date of its  creation or the date when it last  was in effect, whichever is later.  [68 FR 8375, Feb. 20, 2003, as  amended at 78 FR 5692, Jan. 25,  2013]  \u00a7 164.106   Relationship to  other parts.  In complying with the  requirements of this part,  covered entities and, where  provided, business associates,  are required to comply with the  applicable provisions of parts  160 and 162 of this subchapter.  [78 FR 5693, Jan. 25, 2013]  Subpart B [Reserved]  Subpart C\u2014Security  Standards for the Protection\n\n[HIPAA] HIPAA de-identification Safe Harbor or Expert Determination \u00a7164.514(b) \u2014 ./HIPAA.pdf: HIPAA Administrative Simplification Regulation Text  March 2013   79  is not individually identifiable health  information or disclose protected  health information only to a business  associate for such purpose, whether  or not the de-identified information is to be used by the covered entity.  (2) Uses and disclosures of de- identified information. Health  information that meets the standard  and implementation specifications  for de-identification under  \u00a7 164.514(a) and (b) is considered  not to be individually identifiable  health information, i.e., de-identified. The requirements of this\n\n[HIPAA] HIPAA Limited Data Set and Data Use Agreement \u00a7164.514(e) \u2014 ./HIPAA.pdf: HIPAA Administrative Simplification Regulation Text  March 2013   99  (xvi) Full face photographic images  and any comparable images.  (3) Implementation specification:  Permitted purposes for uses and  disclosures.   (i) A covered entity may use or  disclose a limited data set under  paragraph (e)(1) of this section only  for the purposes of research, public  health, or health care operations.  (ii) A covered entity may use  protected health information to create  a limited data set that meets the  requirements of paragraph (e)(2) of  this section, or disclose protected  health information on\n\n[HIPAA] HIPAA Authorization requirement \u00a7164.508 \u2014 ./HIPAA.pdf: HIPAA Administrative Simplification Regulation Text  March 2013   87  for the creation and maintenance of a  research database or research  repository.  (vi) Signature of the individual and  date. If the authorization is signed by  a personal representative of the  individual, a description of such  representative's authority to act for  the individual must also be provided.  (2) Required statements. In addition  to the core elements, the  authorization must contain  statements adequate to place the  individual on notice of all of the  following:  (i) The individual's right to revoke  the auth\n\n[GDPR] GDPR Article 6 lawful basis for processing health data \u2014 ./GDPR.pdf: and other measures to ensure lawful and fair processing. It should also be f or U nion or Member Stat e la w to  det er mine whether the controller performing a task car r ied out in the public inte rest or in the exer cise of off icial  author ity should be a public author ity or another natural or leg al person go ver ned by public la w , or , where it is  in the public inter est to do so, including f or health pur poses such as public health and social protection and the  manag ement of health care ser vices, by pr ivate law , such as a professional association.  (46)  The processing of per\n\n[GDPR] GDPR Article 9 special category data and research safeguards \u2014 ./GDPR.pdf: r ights and freedoms of natural persons.  (99)  When dra wing up a code of conduct, or when amending or extending such a code, associations and other bodies  representing catego r ies of controllers or processors should consult relevant stakeholders, including data subjects  where feasible, and hav e regar d to submissions received and views expressed in response to such consultations.  (100)  In order to enhance transparency and compliance with this Regulation, the establishment of cer tif ication  mech anisms and data prot ection seals and marks should be encourage d, allo wing data subjects\n\n[GDPR] GDPR international transfers Articles 44\u201349 \u2014 ./GDPR.pdf: where the transfer is made from a register established by law and inte nded f or consultation by the public or  persons hav ing a legitimate inter est. In the latter case, such a transfer should not inv olve the entirety of the  personal data or entire cate gor ies of the data contained in the registe r and, when the register is intended f or  consultation by persons having a legitimate inter est, the transfer should be made only at the request of those  persons or , if they are to be the recipients, taking into full account the inter ests and fundamental r ights of the  data subject.  (112)  \n\n[IRB] 45 CFR 46.109 IRB review requirements \u2014 ./IRB.pdf: <\t Identification of the IRB or Privacy Board and the date on which the  alteration or waiver of authorization was approved;  <\t A statement that the IRB or Privacy Board has determined that the  alteration or waiver of authorization, in whole or in part, satisfies the three  criteria in the Rule;  <\t A brief description of the protected health information for which use or  access has been determined to be necessary by the IRB or Privacy Board;  <\t A statement that the alteration or waiver of authorization has been  reviewed and approved under either normal or expedited review  procedures; and\n\n[IRB] 45 CFR 46.116 informed consent requirements \u2014 ./IRB.pdf: Transition Provisions. Under the Privacy Rule, a covered entity may use and disclose  protected health information that was created or received for research, either before or after the  compliance date, if the covered entity obtained any one of the following prior to the compliance  date:  \u2022\t An authorization or other express legal permission from an individual to use or  disclose protected health information for the research;  \u2022\t The informed consent of the individual to participate in the research; or  \u2022\t A waiver of informed consent by an IRB in accordance with the Common Rule or  an except"
+}

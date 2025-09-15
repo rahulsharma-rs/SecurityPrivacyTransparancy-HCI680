@@ -1,0 +1,90 @@
+{
+  "verdict": "Allowed with conditions",
+  "findings": [
+    {
+      "rule_set": "irb",
+      "id": "irb_scope_alignment",
+      "title": "IRB Scope Alignment",
+      "pass": true,
+      "detail": "",
+      "citations": [
+        "45 CFR 46.109",
+        "45 CFR 46.116"
+      ],
+      "remediation": "Amend IRB or narrow request to align population/timeframe/sites/elements."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_minimum_necessary",
+      "title": "HIPAA Minimum Necessary",
+      "pass": false,
+      "detail": "Direct identifiers requested.",
+      "citations": [
+        "HIPAA \u00a7164.502(b)"
+      ],
+      "remediation": "Trim to minimum necessary; justify elements in DMP/IRB."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_deid_or_limited",
+      "title": "HIPAA De-ID or Limited Dataset",
+      "pass": false,
+      "detail": "Prefer De-Identification or Limited Dataset + DUA.",
+      "citations": [
+        "HIPAA \u00a7164.514(b)",
+        "HIPAA \u00a7164.514(e)"
+      ],
+      "remediation": "Remove direct identifiers; De-ID or Limited Dataset + DUA."
+    },
+    {
+      "rule_set": "hipaa",
+      "id": "hipaa_auth_or_waiver",
+      "title": "HIPAA Authorization or IRB Waiver",
+      "pass": true,
+      "detail": "",
+      "citations": [
+        "HIPAA \u00a7164.508"
+      ],
+      "remediation": ""
+    },
+    {
+      "rule_set": "gdpr",
+      "id": "gdpr_lawful_basis",
+      "title": "GDPR Lawful Basis & Art.9",
+      "pass": true,
+      "detail": "Not in scope for this request.",
+      "citations": [
+        "GDPR Art.6",
+        "GDPR Art.9"
+      ],
+      "remediation": ""
+    }
+  ],
+  "irb_scope": {
+    "population": "Adults aged 18+ with Type 2 Diabetes (ICD-10: E11.*); Excludes pediatrics",
+    "timeframe": "January 1, 2019 through December 31, 2025",
+    "sites": [
+      "UAB-MainHospital",
+      "UAB-ClinicA"
+    ],
+    "approved_elements": [
+      "encounter dates",
+      "labs (a1c",
+      "fasting glucose)",
+      "medications (insulin",
+      "metformin",
+      "glp-1)",
+      "demographics (age",
+      "sex",
+      "race)",
+      "vitals (bmi",
+      "blood pressure)"
+    ],
+    "identifiers_rule": "Direct identifiers are NOT approved for export; internal analysis may link via MRN in a secure enclave only",
+    "hipaa": "IRB has approved a Waiver of Authorization for retrospective EHR review in a secure enclave",
+    "sharing": "External sharing limited to De-identified or Limited Dataset with DUA; no raw identifiers may leave enclave",
+    "retention": "Analysis workspace auto-deletes derived datasets after 24 months unless renewed",
+    "notes": "Expansion to new sites, pediatrics, or new identifiers requires IRB amendment"
+  },
+  "report_markdown": "### Verdict\nAllowed with conditions\n\n### Rationale\n- [PASS] IRB Scope Alignment\n- [ISSUE] HIPAA Minimum Necessary \u2014 Direct identifiers requested.\n- [ISSUE] HIPAA De-ID or Limited Dataset \u2014 Prefer De-Identification or Limited Dataset + DUA.\n- [PASS] HIPAA Authorization or IRB Waiver\n- [PASS] GDPR Lawful Basis & Art.9 \u2014 Not in scope for this request.\n\n### Required Changes\n1) Trim to minimum necessary; justify elements in DMP/IRB.\n2) Remove direct identifiers; De-ID or Limited Dataset + DUA.\n\n### Legal Anchors\n- 45 CFR 46.109\n- 45 CFR 46.116\n- GDPR Art.6\n- GDPR Art.9\n- HIPAA \u00a7164.502(b)\n- HIPAA \u00a7164.508\n- HIPAA \u00a7164.514(b)\n- HIPAA \u00a7164.514(e)\n\n### Policy Excerpts\n[HIPAA] HIPAA minimum necessary standard \u00a7164.502(b): (no excerpt: )\n\n[HIPAA] HIPAA de-identification Safe Harbor or Expert Determination \u00a7164.514(b): (no excerpt: )\n\n[HIPAA] HIPAA Limited Data Set and Data Use Agreement \u00a7164.514(e): (no excerpt: )\n\n[HIPAA] HIPAA Authorization requirement \u00a7164.508: (no excerpt: )\n\n[GDPR] GDPR Article 6 lawful basis for processing health data: (no excerpt: )\n\n[GDPR] GDPR Article 9 special category data and research safeguards: (no excerpt: )\n\n[GDPR] GDPR international transfers Articles 44\u201349: (no excerpt: )\n\n[IRB] 45 CFR 46.109 IRB review requirements: (no excerpt: )\n\n[IRB] 45 CFR 46.116 informed consent requirements: (no excerpt: )"
+}
